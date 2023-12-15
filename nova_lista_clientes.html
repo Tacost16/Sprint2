@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 1 - Sprint 2</title>
+</head>
+
+<body>
+    <script>
+        // DECLARAÇÕES DE FUNÇÕES
+        function pularLinha() {
+            document.write("<br> <br>");
+        }
+
+        function mostrar(frase) {
+            document.write(frase);
+        }
+
+        function mostrarCabecalho() {
+            mostrar("<h1>" + ">> COMEX <<" + "</h1>");
+        }
+
+        function mostrarConteudo() {
+            mostrar("<h2>" + ":: Lista de Clientes" + "</h2>" + "<hr>")
+            mostrar("<h3> - Código: 1 </h3>")
+            listaClientes("ADOLESCENTE", "Fevereiro", 2006);
+            mostrar("<hr>")
+
+            mostrar("<h3> - Código: 2 </h3>")
+            listaClientes("JOVEM", "Maio", 2000);
+            mostrar("<hr>")
+
+            mostrar("<h3> - Código: 3 </h3>")
+            listaClientes("IDOSO", "Novembro", 1950);
+        }
+
+        function mostrarRodape() {
+            mostrar("<hr>" + "<p>" + "<strong>" + " .:: Alura LEVEL UP ::. " + "</strong>" + "</p>");
+        }
+
+        // CONDICAO PARA EXIBIR IDADE
+        function calcularIdade(anoNascimento, anoAtual) {
+            let calcularIdade = anoAtual - anoNascimento;
+
+            if (calcularIdade <= 17) {
+                return "ADOLESCENTE";
+            }
+            if (calcularIdade >= 18 && calcularIdade <= 29) {
+                return "JOVEM";
+            }
+            if (calcularIdade >= 30 && calcularIdade <= 59) {
+                return "ADULTO";
+            }
+            if (calcularIdade >= 60) {
+                return "IDOSO";
+            }
+        }
+
+        // FUNCAO PARA ANO ATUAL 
+        let anoAtual = parseInt(prompt("Digite o ano atual"));
+
+        // EXIBE LISTA
+        function listaClientes(nome, mes, ano) {
+            mostrar("<p>" + "Nome: " + nome + "</p>");
+            mostrar("<p>" + "Mês de nascimento: " + mes + "</p>");
+            mostrar("<p>" + "Ano de nascimento: " + ano + "</p>");
+            let faixaEtaria = calcularIdade(ano, anoAtual);
+            mostrar("Característica Etária: " + faixaEtaria);
+        }
+
+        mostrarCabecalho();
+        mostrarConteudo();
+        mostrarRodape();
+    </script>
+</body>
+
+</html>
