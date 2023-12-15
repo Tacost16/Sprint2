@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 3 - SPRINT 2</title>
+</head>
+
+<body>
+    <header>
+        <h1> >> COMEX << </h1> 
+    </header>
+
+    <h2>::Cadastro de categorias::</h2>
+    <hr>
+    <label for=>Nome:</label>
+    <input type="text" id="inputCategoria" placeholder="Livros">
+    <button onclick="criarCategoria()">Criar</button>
+    <button onclick="exibirLista()">Exibir Lista</button>
+    <hr>
+    <h2>::Lista de Categorias::</h2>
+    <ul id="listaCategorias"></ul>
+    <hr>
+
+    <script>
+        let categorias = [];
+    
+        function criarCategoria() {
+            let novaCategoria = document.getElementById('inputCategoria').value.trim();
+
+            if (novaCategoria !== '') {
+                if (!categorias.includes(novaCategoria)) {
+                    categorias.push(novaCategoria);
+                    document.getElementById('inputCategoria').value = ''; // Limpa o campo de input
+                    alert('Categoria criada com sucesso!');
+                } else {
+                    alert('Esta categoria já existe.');
+                }
+            } else {
+                alert('Por favor, digite o nome da categoria.');
+            }
+        }
+
+        function exibirLista() {
+            let lista = document.getElementById('listaCategorias');
+            lista.innerHTML = ''; // Limpa a lista antes de exibir
+
+            categorias.forEach(function (categoria) {
+                let listItem = document.createElement('li');
+                listItem.textContent = categoria;
+                lista.appendChild(listItem);
+            });
+        }
+    </script>
+</body>
+
+</html>
